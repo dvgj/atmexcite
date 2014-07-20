@@ -5,13 +5,11 @@ import java.io.FileOutputStream;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+import junit.framework.TestCase;
+
 import com.excite.atm.core.ATM;
 import com.excite.atm.core.Notes;
 import com.excite.atm.util.InstanceFactory;
-
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
 
 /**
  * Unit test for simple App.
@@ -104,92 +102,4 @@ public class ATMImplCoreTest
 			fail(e.getMessage());
 		}
 	}
-	
-	private String _withdraw(int amount) {
-		try {
-			ATM atm = InstanceFactory.getATMInstance();
-			atm.withdraw(amount);
-			return "";
-		} catch (Exception e) {
-			return e.getCause().getMessage();			
-		}
-	}
-	
-	
-	/*
-	 * ERR_ATM_001=Insufficient cash at ATM
-	 * ERR_ATM_002=Unable to dispense cash for specified amount, incorrect denominations, must be in 20s and/or 50s
-	 * ERR_ATM_003=Insufficient cash of denomination 
-	 * ERR_ATM_004=Denominations not available or incorrect denominations (must be in 20s and/or 50s)
-	 */
-	
-	public void testErrors() {
-		//_InsufficientBalance();
-		//_IncorrectDenominations();
-		//_InsuffCashForDenom();
-		//_IncorrectDenom();
-	}
-	/**
-	 * Test
-	 * ERR_ATM_001=Insufficient cash at ATM
-	 */
-	private void _InsufficientBalance() {
-		
-		try {
-			ATM atm = InstanceFactory.getATMInstance();
-			int balance = atm.getBalance();
-			String msg = _withdraw(balance + 1);
-			assertEquals(Constants.ERR_ATM_001, messages.getString(Constants.ERR_ATM_001), msg);
-		} catch (Exception e) {
-			fail(e.getMessage());
-		}
-		
-		
-	}
-	
-	/**
-	 * Test
-	 * ERR_ATM_002=Unable to dispense cash for specified amount, incorrect denominations, must be in 20s and/or 50s
-	 */
-	private void _IncorrectDenominations() {
-		try {
-			ATM atm = InstanceFactory.getATMInstance();
-			String msg = _withdraw(10);
-			assertEquals(Constants.ERR_ATM_002, messages.getString(Constants.ERR_ATM_002), msg);			
-		} catch (Exception e) {
-			fail(e.getMessage());
-		}
-	}
-	
-	/**
-	 * Test
-	 * ERR_ATM_003=Insufficient cash of denomination
-	 * 
-	 */
-	private void _InsuffCashForDenom() {
-		try {
-			ATM atm = InstanceFactory.getATMInstance();
-			String msg = _withdraw(150);
-			assertEquals(Constants.ERR_ATM_003, messages.getString(Constants.ERR_ATM_003), msg);					
-		} catch (Exception e) {
-			fail(e.getMessage());
-		}
-	}
-	
-	/**
-	 * Test
-	 * ERR_ATM_004=Denominations not available or incorrect denominations (must be in 20s and/or 50s)
-	 */
-	private void _IncorrectDenom() {
-		try {
-			ATM atm = InstanceFactory.getATMInstance();
-			String msg = _withdraw(80);
-			assertEquals(Constants.ERR_ATM_004, messages.getString(Constants.ERR_ATM_004), msg);
-			
-		} catch (Exception e) {
-			fail(e.getMessage());
-		}
-	}
-	
-	
 }

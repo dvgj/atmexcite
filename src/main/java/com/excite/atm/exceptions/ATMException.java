@@ -11,6 +11,11 @@ package com.excite.atm.exceptions;
  */
 public class ATMException extends Exception {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4820445785782889599L;
+
 	public ATMException() {
 		super("Unexpected error has occurred");
 	}

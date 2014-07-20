@@ -137,7 +137,7 @@ public final class ATMImpl implements ATM {
 	 * 
 	 */
 	private void buildNotesMap(Notes[] notes) {
-		hmNotes = new HashMap();
+		hmNotes = new HashMap<Integer, Notes>();
 		
 		for (Notes each : notes) {
 			Notes existing = (Notes) hmNotes.get(each.getDenomination());

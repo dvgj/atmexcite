@@ -5,13 +5,10 @@ import java.io.FileOutputStream;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-import com.excite.atm.core.ATM;
-import com.excite.atm.core.Notes;
-import com.excite.atm.util.InstanceFactory;
-
-import junit.framework.Test;
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
+
+import com.excite.atm.core.ATM;
+import com.excite.atm.util.InstanceFactory;
 
 /**
  * Unit test for simple App.
@@ -102,8 +99,7 @@ public class ATMImplErrorsTest
 	 * ERR_ATM_002=Unable to dispense cash for specified amount, incorrect denominations, must be in 20s and/or 50s
 	 */
 	private void _IncorrectDenominations() {
-		try {
-			ATM atm = InstanceFactory.getATMInstance();
+		try {			
 			String msg = _withdraw(10);
 			assertEquals(Constants.ERR_ATM_002, messages.getString(Constants.ERR_ATM_002), msg);			
 		} catch (Exception e) {
@@ -120,7 +116,6 @@ public class ATMImplErrorsTest
 	 */
 	private void _InsuffCashForDenom() {
 		try {
-			ATM atm = InstanceFactory.getATMInstance();
 			String msg = _withdraw(100);
 			assertEquals(Constants.ERR_ATM_003, messages.getString(Constants.ERR_ATM_003) + "20", msg);					
 		} catch (Exception e) {
@@ -135,7 +130,6 @@ public class ATMImplErrorsTest
 	 */
 	private void _IncorrectDenom() {
 		try {
-			ATM atm = InstanceFactory.getATMInstance();
 			String msg = _withdraw(80);
 			assertEquals(Constants.ERR_ATM_004, messages.getString(Constants.ERR_ATM_004), msg);
 			

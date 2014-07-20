@@ -91,6 +91,7 @@ public class ATMDemo {
 	        		break;
 	        	case QUIT:
 	        		System.out.println("Thank you. Bye.");
+	        		sc.close();
 	        		System.exit(0);
 	        		break;
 	        		
@@ -106,7 +107,6 @@ public class ATMDemo {
  */
 	private static void print(Notes[] cash, int amount) {
 		
-		int ilen = cash.length;
 		System.out.print("For $" + amount);
 		
 		for (Notes each : cash) {

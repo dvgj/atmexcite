@@ -17,6 +17,11 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(propOrder = {"denomination", "balance"})
 public class Notes implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3887602105819486841L;
+
 	/** the note denomination */
 	private int denomination;
 	
