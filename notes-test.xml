@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<atm>
+    <notes>
+        <denomination>20</denomination>
+        <balance>5</balance>
+    </notes>
+    <notes>
+        <denomination>50</denomination>
+        <balance>3</balance>
+    </notes>
+</atm>
