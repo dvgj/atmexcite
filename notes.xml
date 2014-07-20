@@ -2,10 +2,10 @@
 <atm>
     <notes>
         <denomination>20</denomination>
-        <balance>98</balance>
+        <balance>0</balance>
     </notes>
     <notes>
         <denomination>50</denomination>
-        <balance>97</balance>
+        <balance>0</balance>
     </notes>
 </atm>

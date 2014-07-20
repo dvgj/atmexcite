@@ -34,6 +34,7 @@ public class ATMDemo {
 	public static final String BAL = "bal";
 	public static final String WD = "wd";
 	public static final String QUIT = "quit";
+	public static final String EXIT = "exit";
 
 	public static void main(String args[]) throws Exception {
 
@@ -53,6 +54,9 @@ public class ATMDemo {
 			Notes[] cash = null;
 			String cmd = sc.nextLine();
 			String arg = cmd;
+			if ("exit".equals(cmd)) {
+				cmd = QUIT;
+			}
 			if (!"quit".equals(cmd)) {
 				cmd = WD;
 			}
@@ -71,7 +75,7 @@ public class ATMDemo {
 				} catch (Exception e) {
 					System.err.println("ERROR : " + e.getCause().getMessage());
 				}
-				break;
+				break;			
 			case QUIT:
 				System.out.println("Thank you. Bye.");
 				sc.close();

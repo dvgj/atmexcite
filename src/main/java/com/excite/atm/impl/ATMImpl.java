@@ -275,10 +275,11 @@ public final class ATMImpl implements ATM {
 			int div = amount / denominations[index];
 			if (availableNotes < div) {		
 				if (index > 0) {
+					if (availableNotes > 0) {
+						result[index] = availableNotes;
+						balance = balance - (availableNotes * denominations[index]);
+					}
 					_withdraw(denominations, balance, index - 1, result);
-				} else {
-					//Insufficient cash of denomination
-					throw new ATMException(messages.getString(Constants.ERR_ATM_003) + denominations[index]);
 				}
 			} else {
 				int mod = amount % denominations[index];
@@ -290,7 +291,7 @@ public final class ATMImpl implements ATM {
 					_withdraw(denominations, balance, index - 1, result);
 				} else {
 					//Denominations not available or incorrect denominations (must be in 20s and/or 50s)
-					throw new ATMException(messages.getString(Constants.ERR_ATM_004));
+					throw new ATMException(messages.getString(Constants.ERR_ATM_003));
 				}
 			}
 		}

@@ -45,11 +45,8 @@ public class Constants {
 	
 	/** Unable to dispense cash for specified amount, incorrect denominations, must be in 20s and/or 50s */
 	public static final String ERR_ATM_002 = "ERR_ATM_002";
-	
-	/** Insufficient cash of denomination */
-	public static final String ERR_ATM_003 = "ERR_ATM_003";
-	
+		
 	/** Denominations not available or incorrect denominations (must be in 20s and/or 50s) */
-	public static final String ERR_ATM_004 = "ERR_ATM_004";
+	public static final String ERR_ATM_003 = "ERR_ATM_003";
 	
 }

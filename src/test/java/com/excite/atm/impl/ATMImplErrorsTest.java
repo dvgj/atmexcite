@@ -73,7 +73,6 @@ public class ATMImplErrorsTest
 	public void testErrors() {
 		_InsufficientBalance();
 		_IncorrectDenominations();
-		_InsuffCashForDenom();
 		_IncorrectDenom();
 	}
 	/**
@@ -107,21 +106,6 @@ public class ATMImplErrorsTest
 		}
 	}
 	
-	/**
-	 * Test
-	 * 
-	 * 
-	 * ERR_ATM_003=Insufficient cash of denomination
-	 * 
-	 */
-	private void _InsuffCashForDenom() {
-		try {
-			String msg = _withdraw(100);
-			assertEquals(Constants.ERR_ATM_003, messages.getString(Constants.ERR_ATM_003) + "20", msg);					
-		} catch (Exception e) {
-			fail(e.getMessage());
-		}
-	}
 	
 	/**
 	 * Test
@@ -131,7 +115,7 @@ public class ATMImplErrorsTest
 	private void _IncorrectDenom() {
 		try {
 			String msg = _withdraw(80);
-			assertEquals(Constants.ERR_ATM_004, messages.getString(Constants.ERR_ATM_004), msg);
+			assertEquals(Constants.ERR_ATM_003, messages.getString(Constants.ERR_ATM_003), msg);
 			
 		} catch (Exception e) {
 			fail(e.getMessage());
